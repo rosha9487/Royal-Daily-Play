@@ -1,0 +1,122 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c0032;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Логотип и заголовок */
+.logo-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+h1 {
+    color: #ff0000;
+}
+
+.slogan {
+    text-align: center;
+    font-size: 1.2em;
+    color: #ff4d4d;
+}
+
+/* Стили для разделов */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff66cc;
+}
+
+p, ul {
+    color: #ffffff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 5px 0;
+}
+
+/* Переключатель языка */
+#language-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.toggle-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: flex;
+    width: 50px;
+    height: 25px;
+    background-color: #ff0000;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-ball {
+    width: 20px;
+    height: 20px;
+    background-color: #ff66cc; /* Сиреневый цвет для точки */
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    transition: left 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+    left: 25px;
+}
+
+/* Подвал */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #33004d;
+    color: #ffb3ff;
+}
+
+    background-color: #555;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-ball {
+    width: 20px;
+    height: 20px;
+    background-color: #a4ff00; /* Салатовый цвет */
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    transition: left 0.3s ease;
+}
+
+/* Когда переключатель включен */
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+    left: 25px;
+}
