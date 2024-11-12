@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Daily Play (RDP) - Pocket Ants Clan</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f0f0f;
+            color: #d4ffd4;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Левое боковое меню */
+        .sidebar {
+            width: 250px;
+            background-color: #1c1c1c;
+            color: #d4ffd4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+        }
+
+        /* Логотип */
+        .logo-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        /* Кнопки навигации */
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+        }
+
+        .nav-links a {
+            color: #d4ffd4;
+            text-decoration: none;
+            font-size: 1.2em;
+            display: block;
+            padding: 10px;
+        }
+
+        .nav-links a:hover {
+            background-color: #28a745;
+            border-radius: 10px;
+        }
+
+        /* Контент */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+
+        h2 {
+            color: #28a745;
+        }
+
+        /* Переключатель языка */
+        .language-toggle {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-label {
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+            background-color: #28a745;
+            border-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .toggle-checkbox {
+            display: none;
+        }
+
+        .toggle-ball {
+            width: 20px;
+            height: 20px;
+            background-color: #d4ffd4;
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+            transition: left 0.3s ease;
+        }
+
+        .toggle-checkbox:checked + .toggle-label .toggle-ball {
+            left: 25px;
+        }
+
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 80px;
+            }
+            .logo-container img {
+                width: 60px;
+                height: 60px;
+            }
+            .nav-links a {
+                font-size: 0.9em;
+            }
+            .content {
+                margin-left: 80px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Левое боковое меню -->
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="RDP Clan Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#info" id="info-link">О клане</a></li>
+            <li><a href="#rules" id="rules-link">Правила</a></li>
+            <li><a href="#contacts" id="contacts-link">Контакты</a></li>
+        </ul>
+        <!-- Переключатель языка -->
+        <div class="language-toggle">
+            <input type="checkbox" id="lang-toggle" class="toggle-checkbox">
+            <label for="lang-toggle" class="toggle-label">
+                <span class="toggle-ball"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Контент -->
+    <div class="content">
+        <section id="info">
+            <h2 id="title">Клан Royal Daily Play (RDP)</h2>
+            <p id="slogan">Добро пожаловать в наш клан Pocket Ants!</p>
+            <p id="description">Клан Royal Daily Play (RDP) — сообщество игроков, объединённых общей целью: завоевать мир Pocket Ants! Мы рады принять новичков и помочь им освоиться.</p>
+        </section>
+
+        <section id="rules">
+            <h2>Правила клана</h2>
+            <ul id="rules-list">
+                <li>Активная игра каждый день.</li>
+                <li>Уважение к другим игрокам.</li>
+                <li>Помощь в совместных заданиях и событиях.</li>
+            </ul>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <p id="contacts-text">Для дополнительной информации свяжитесь с лидером клана в игре или присоединяйтесь к нашему серверу Discord.</p>
+        </section>
+    </div>
+
+    <script>
+        // Переключение языка
+        document.getElementById('lang-toggle').addEventListener('change', function () {
+            const title = document.getElementById('title');
+            const slogan = document.getElementById('slogan');
+            const description = document.getElementById('description');
+            const contactsText = document.getElementById('contacts-text');
+            const infoLink = document.getElementById('info-link');
+            const rulesLink = document.getElementById('rules-link');
+            const contactsLink = document.getElementById('contacts-link');
+            const rulesList = document.getElementById('rules-list');
+
+            if (this.checked) {
+                // Если переключатель на английском
+                title.textContent = 'Royal Daily Play (RDP) Clan';
+                slogan.textContent = 'Welcome to our Pocket Ants clan!';
+                description.textContent = 'The Royal Daily Play (RDP) clan is a community of players united with the common goal: to conquer the world of Pocket Ants! We welcome new players and help them get started.';
+                contactsText.textContent = 'For more information, contact the clan leader in-game or join our Discord server.';
+                infoLink.textContent = 'About the Clan';
+                rulesLink.textContent = 'Rules';
+                contactsLink.textContent = 'Contacts';
+                rulesList.innerHTML = '<li>Play actively every day.</li><li>Respect other players.</li><li>Assist in team quests and events.</li>';
+            } else {
+                // Если переключатель на русском
+                title.textContent = 'Клан Royal Daily Play (RDP)';
+                slogan.textContent = 'Добро пожаловать в наш клан Pocket Ants!';
+                description.textContent = 'Клан Royal Daily Play (RDP) — сообщество игроков, объединённых общей целью: завоевать мир Pocket Ants! Мы рады принять новичков и помочь им освоиться.';
+                contactsText.textContent = 'Для дополнительной информации свяжитесь с лидером клана в игре или присоединяйтесь к нашему серверу Discord.';
+                infoLink.textContent = 'О клане';
+                rulesLink.textContent = 'Правила';
+                contactsLink.textContent = 'Контакты';
+                rulesList.innerHTML = '<li>Активная игра каждый день.</li><li>Уважение к другим игрокам.</li><li>Помощь в совместных заданиях и событиях.</li>';
+            }
+        });
+    </script>
+</body>
+</html>
